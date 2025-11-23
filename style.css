@@ -1,0 +1,46 @@
+/* Global site styles */
+:root {
+  --site-gradient: linear-gradient(180deg, #ffffff 0%, #3497df 100%);
+}
+html, body {
+  height: 100%;
+  min-height: 100%;
+  background: var(--site-gradient) fixed !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  margin: 0;
+}
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color: #000000; 
+}
+
+.main-flex {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Hover caption for about gallery */
+.about-card {
+  position: relative;
+  overflow: hidden;
+}
+.about-card::after {
+  content: attr(data-alt);
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transform: translateY(100%);
+  background: rgb(0, 0, 0);
+  color: #ffffff;
+  padding: 0.75rem 1rem;
+  font-weight: 600;
+  text-align: center;
+  transition: transform 200ms ease-in-out;
+}
+.about-card:hover::after,
+.about-card:focus-within::after {
+  transform: translateY(0);
+}

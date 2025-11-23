@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="style.css">
+
+    <title>Support</title>
+</head>
+<body class="bg-white text-gray-900 font-sans m-0 p-0 flex flex-col min-h-screen">
+   <header class="mb-6 w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
+        <div class="bg-white p-4 flex justify-between items-center">
+            <a href="index.html" class="text-xl font-bold text-gray-900 pl-4 hover:text-gray-600">Apol</a>
+            <div class="flex items-center gap-4">
+                <nav>
+                    <a href="products.html" class="py-2 text-gray-900 text-sm hover:text-gray-400 mr-6">Shop</a>
+                    <a href="cart.html" class="py-2 text-gray-900 text-sm hover:text-gray-400 mr-6">Cart</a>
+                </nav>
+                <nav class="relative group">
+                    <button id="menuButton" class="text-gray-900 hover:text-gray-600 transition text-2xl mr-6" aria-expanded="false">☰</button>
+                    <div id="menuDropdown" class="hidden group-hover:flex flex-col absolute right-0 bg-white border border-gray-300 rounded shadow-lg z-10">
+                        <a href="about.html" class="px-4 py-2 text-gray-900 hover:bg-gray-200">About</a>
+                        <a href="contacts.html" class="px-4 py-2 text-gray-900 hover:bg-gray-200">Contacts</a>
+                        <a href="login.html" class="px-4 py-2 text-gray-900 hover:bg-gray-200">Login</a>
+                        <a href="register.html" class="px-4 py-2 text-gray-900 hover:bg-gray-200">Register</a>
+                        <a href="support.html" class="px-4 py-2 text-gray-900 hover:bg-gray-200">Support</a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="container mx-auto p-4 flex-1">
+        <section>
+            <h2 class="text-2xl font-bold mb-4">Support</h2>
+            <p class="mb-4">Need help? Choose a topic below or contact us directly.</p>
+
+            <div id="supportGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+                <button data-topic="orders" class="support-card p-4 bg-white rounded-lg border hover:shadow-lg text-left">Orders<br><span class="text-sm text-gray-600">Track or modify your orders</span></button>
+                <button data-topic="shipping" class="support-card p-4 bg-white rounded-lg border hover:shadow-lg text-left">Shipping<br><span class="text-sm text-gray-600">Delivery times & tracking</span></button>
+                <button data-topic="returns" class="support-card p-4 bg-white rounded-lg border hover:shadow-lg text-left">Returns<br><span class="text-sm text-gray-600">Return policy & process</span></button>
+                <button data-topic="payments" class="support-card p-4 bg-white rounded-lg border hover:shadow-lg text-left">Payments<br><span class="text-sm text-gray-600">Billing and payment issues</span></button>
+                <button data-topic="technical" class="support-card p-4 bg-white rounded-lg border hover:shadow-lg text-left">Technical<br><span class="text-sm text-gray-600">Device setup & troubleshooting</span></button>
+                <button data-topic="warranty" class="support-card p-4 bg-white rounded-lg border hover:shadow-lg text-left">Warranty<br><span class="text-sm text-gray-600">Warranty claims & repairs</span></button>
+                <button data-topic="account" class="support-card p-4 bg-white rounded-lg border hover:shadow-lg text-left">Account<br><span class="text-sm text-gray-600">Login & account management</span></button>
+                <button data-topic="returns-help" class="support-card p-4 bg-white rounded-lg border hover:shadow-lg text-left">Refunds<br><span class="text-sm text-gray-600">Refund status & questions</span></button>
+                <button data-topic="other" class="support-card p-4 bg-white rounded-lg border hover:shadow-lg text-left">Other<br><span class="text-sm text-gray-600">General inquiries</span></button>
+            </div>
+
+            
+            <div class="mt-6">
+                <h3 class="text-xl font-bold mb-3">Frequently Asked Questions</h3>
+                <p class="mb-2"><strong>Q: How can I contact support?</strong></p>
+                <p class="mb-4">A: You can reach us through the contact form or email us at support@example.com</p>
+                <p class="mb-2"><strong>Q: What are your business hours?</strong></p>
+                <p class="mb-4">A: We are available Monday to Friday, 9 AM to 5 PM.</p>
+                <p class="text-gray-900"><a href="contacts.html" class="hover:text-red-600 underline ">Contact us here</a></p>
+            </div>
+        </section>
+    </div>
+
+   
+    <script src="js/script.js"></script>
+
+    <footer class="mt-6 w-full bg-white text-gray-900 p-2">
+        <div class="flex justify-start gap-4 ml-2">
+            <span>Copyright</span>
+            <a href="https://www.instagram.com/criz.py_/" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               class="underline hover:text-pink-500">
+               Instagram
+            </a>
+        </div>
+    </footer>
+</body>
+<script>
+(function(){
+  const menuButton = document.getElementById('menuButton');
+  const menuDropdown = document.getElementById('menuDropdown');
+  if (!menuButton || !menuDropdown) return;
+
+  menuButton.addEventListener('click', function(e){
+    e.stopPropagation();
+    menuDropdown.classList.toggle('hidden');
+    const expanded = menuButton.getAttribute('aria-expanded') === 'true';
+    menuButton.setAttribute('aria-expanded', String(!expanded));
+  });
+
+  document.addEventListener('click', function(e){
+    if (!menuDropdown.classList.contains('hidden') && !menuDropdown.contains(e.target) && e.target !== menuButton) {
+      menuDropdown.classList.add('hidden');
+      menuButton.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') {
+      menuDropdown.classList.add('hidden');
+      menuButton.setAttribute('aria-expanded', 'false');
+    }
+  });
+})();
+</script>
+</html>

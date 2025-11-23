@@ -1,83 +1,3 @@
-<<<<<<< HEAD
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-
-    <title>Register</title>
-</head>
-<body style="background-image: url(images/bg2.webp); background-size: cover; background-attachment: fixed;" class="bg-white text-gray-900 font-sans m-0 p-0 flex flex-col min-h-screen">
-   <header class="mb-6 w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
-        <div class="bg-white p-4 flex justify-between items-center">
-            <a href="index.html" class="text-xl font-bold text-gray-900 pl-4 hover:text-gray-600">Apol</a>
-            <div class="flex items-center gap-4">
-                <nav>
-                    <a href="products.html" class="py-2 text-gray-900 text-sm hover:text-gray-400 mr-6">Products</a>
-                </nav>
-                <nav class="relative group">
-                    <button class="text-gray-900 hover:text-gray-600 transition text-2xl">☰</button>
-                    <div class="hidden group-hover:flex flex-col absolute right-0 bg-white border border-gray-300 rounded shadow-lg z-10">
-                        <a href="about.html" class="px-4 py-2 text-gray-900 hover:bg-gray-200">About</a>
-                        <a href="contacts.html" class="px-4 py-2 text-gray-900 hover:bg-gray-200">Contacts</a>
-                        <a href="login.html" class="px-4 py-2 text-gray-900 hover:bg-gray-200">Login</a>
-                        <a href="register.html" class="px-4 py-2 text-gray-900 hover:bg-gray-200">Register</a>
-                        <a href="suppport.html" class="px-4 py-2 text-gray-900 hover:bg-gray-200">Support</a>
-                    </div>
-                </nav>
-            </div>
-        </div>
-    </header>
-
-    <div class="container mx-auto p-4 flex-1">
-        <section class="flex flex-col items-center">
-            <h2 class="text-2xl font-bold mb-4 text-center">Register/Create an Account</h2>
-
-            <form id="registerForm" onsubmit="return validateRegister()" class="max-w-md">
-                <input type="text" id="fullname" placeholder="Full Name" required class="w-full p-2 mb-3 text-gray-900 border-gray-700 rounded">
-                <input type="email" id="email" placeholder="Email" required class="w-full p-2 mb-3 border border-gray-300 rounded">
-                <input type="password" id="password" placeholder="Password" required class="w-full p-2 mb-3 border border-gray-300 rounded">
-                <input type="password" id="confirmPassword" placeholder="Confirm Password" required class="w-full p-2 mb-3 border border-gray-300 rounded">
-                <button type="submit" class="w-full bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Register</button>
-            </form>
-            <p id="registerMessage" class="mt-4 text-lg font-semibold text-green-600"></p>
-        </section>
-    </div>
-
-    <script>
-        function validateRegister() {
-            const fullname = document.getElementById('fullname').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const password = document.getElementById('password').value;
-            const confirmPassword = document.getElementById('confirmPassword').value;
-            const registerMessage = document.getElementById('registerMessage');
-
-            if (!fullname || !email || !password || !confirmPassword) {
-                alert('Please fill in all fields.');
-                return false;
-            }
-
-            if (password !== confirmPassword) {
-                alert('Passwords do not match.');
-                return false;
-            }
-
-            const user = {
-                fullname: fullname,
-                email: email,
-                password: password
-            };
-
-            localStorage.setItem('registeredUser', JSON.stringify(user));
-            registerMessage.textContent = 'Registration successful! You can now login.';
-            document.getElementById('registerForm').reset();
-            return false;
-        }
-    </script>
-    <footer class="mt-6 w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-white text-gray-900 text-center p-2">Goodbye</footer>
-</body>
-=======
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -136,5 +56,4 @@
     </div>
 </footer>
 </body>
->>>>>>> 21438a3 (added new file)
 </html>

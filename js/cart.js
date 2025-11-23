@@ -1,85 +1,96 @@
-// Simple cart management using localStorage
-(function(){
-  const STORAGE_KEY = 'apol_cart_v1';
+(function () {
+  const KEY = "apol_cart_v1";
 
-  function readCart(){
-    try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; } catch(e){ return []; }
-  }
-  function writeCart(cart){ localStorage.setItem(STORAGE_KEY, JSON.stringify(cart)); }
+  const read = () => JSON.parse(localStorage.getItem(KEY) || "[]");
+  const write = (c) => localStorage.setItem(KEY, JSON.stringify(c));
 
-  function addToCart(item){
-    const cart = readCart();
+  window.apolAddToCart = (item) => {
+    const cart = read();
     cart.push(item);
-    writeCart(cart);
-    alert('Added to cart: ' + item.title);
-  }
+    write(cart);
+    alert("Added to cart: " + item.title);
+  };
 
-  // expose addToCart globally so product pages can call it
-  window.apolAddToCart = addToCart;
+  const container = document.getElementById("cartItemsContainer");
+  const summary = document.getElementById("cartSummary");
+  if (!container) return;
 
-  // If on cart page, render contents
-  if (!document.getElementById('cartItemsContainer')) return;
+  function render() {
+    const cart = read();
+    container.innerHTML = "";
 
-  function renderCart(){
-    const container = document.getElementById('cartItemsContainer');
-    const summary = document.getElementById('cartSummary');
-    const cart = readCart();
-
-    container.innerHTML = '';
-    if (cart.length === 0) {
-      container.innerHTML = '<p>Your cart is empty.</p>';
-      summary.innerHTML = '';
+    if (!cart.length) {
+      container.innerHTML = "<p>Your cart is empty.</p>";
+      summary.innerHTML = "";
       return;
     }
 
-    cart.forEach((it, idx) => {
-      const div = document.createElement('div');
-      div.className = 'flex items-center gap-4 bg-white p-3 rounded border';
-      div.innerHTML = `
-        <img src="${it.image || 'images/grid1.jpg'}" alt="${it.title}" class="w-20 h-20 object-cover rounded">
-        <div class="flex-1">
-          <div class="font-semibold">${it.title}</div>
-          <div class="text-sm text-gray-600">${it.desc || ''}</div>
-        </div>
-        <div class="text-lg font-bold">${it.price ? '₱' + it.price : ''}</div>
-        <button data-idx="${idx}" class="remove-btn bg-red-500 text-white px-3 py-1 rounded ml-2">Remove</button>
-      `;
-      container.appendChild(div);
-    });
+    // Items
+    cart.forEach((item, i) => {
+      container.innerHTML += `
+        <div class="flex items-center gap-4 bg-white p-3 rounded border">
+          <img src="${item.image || 'images/grid1.jpg'}"
+               alt="${item.title}"
+               class="w-20 h-20 object-cover rounded">
 
-    const total = cart.reduce((s, i) => s + (Number(i.price) || 0), 0);
+          <div class="flex-1">
+            <div class="font-semibold">${item.title}</div>
+            <div class="text-sm text-gray-600">${item.desc || ""}</div>
+          </div>
+
+          <div class="text-lg font-bold">$${item.price || 0}</div>
+
+          <button data-i="${i}"
+                  class="remove bg-red-500 text-white px-3 py-1 rounded hover:bg-red-700">
+            Remove
+          </button>
+        </div>
+      `;
+    }); 
+
+    // Summary
+    const total = cart.reduce((t, i) => t + Number(i.price || 0), 0);
     summary.innerHTML = `
-      <div class="flex items-center justify-between">
+      <div class="flex justify-between">
         <div class="text-lg font-bold">Total</div>
-        <div class="text-xl font-extrabold">₱${total.toFixed(2)}</div>
+        <div class="text-xl font-extrabold">$${total.toFixed(2)}</div>
       </div>
+
       <div class="mt-4 flex gap-2">
-        <button id="checkoutBtn" class="bg-green-600 text-white px-4 py-2 rounded">Checkout</button>
-        <button id="clearCartBtn" class="bg-gray-300 px-4 py-2 rounded">Clear Cart</button>
+        <button id="checkoutBtn"
+                class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-800">
+          Checkout
+        </button>
+
+        <button id="clearCartBtn"
+                class="bg-gray-300 px-4 py-2 rounded hover:bg-gray-400">
+          Clear Cart
+        </button>
       </div>
     `;
 
-    // remove handlers
-    Array.from(document.getElementsByClassName('remove-btn')).forEach(btn => {
-      btn.addEventListener('click', function(){
-        const idx = Number(this.dataset.idx);
-        const c = readCart();
-        c.splice(idx,1);
-        writeCart(c);
-        renderCart();
-      });
+    // Handlers
+    container.querySelectorAll(".remove").forEach((btn) => {
+      btn.onclick = () => {
+        const idx = btn.dataset.i;
+        const c = read();
+        c.splice(idx, 1);
+        write(c);
+        render();
+      };
     });
 
-    document.getElementById('clearCartBtn').addEventListener('click', function(){
-      if (!confirm('Clear cart?')) return;
-      writeCart([]);
-      renderCart();
-    });
+    document.getElementById("clearCartBtn").onclick = () => {
+      if (confirm("Clear cart?")) {
+        write([]);
+        render();
+      }
+    };
 
-    document.getElementById('checkoutBtn').addEventListener('click', function(){
-      alert('Checkout is a demo.');
-    });
+    document.getElementById("checkoutBtn").onclick = () => {
+      alert("Done Checkout.");
+    };
   }
 
-  renderCart();
+  render();
 })();

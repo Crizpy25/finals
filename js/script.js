@@ -1,3 +1,4 @@
+// Registration Form Validation
 function validateRegister(event) {
     if (event && event.preventDefault) event.preventDefault();
 
@@ -36,6 +37,7 @@ function validateRegister(event) {
     return false;
 }
 
+// Support Grid Functionality
 document.addEventListener('DOMContentLoaded', function() {
   const grid = document.getElementById('supportGrid');
   if (!grid) return;
@@ -58,11 +60,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const key = btn.dataset.topic;
     const t = topics[key];
     if (!t) return;
-    alert(t.title + '\n\n' + t.content);
+    alert(t.title + '\n' + t.content);
   });
 });
 
 
+// Shopping Cart Functionality
 (function () {
   const KEY = "apol_cart_v1";
 
@@ -113,7 +116,7 @@ document.addEventListener('DOMContentLoaded', function() {
       `;
     }); 
 
-    // Summary
+    // Total Price
     const total = cart.reduce((t, i) => t + Number(i.price || 0), 0);
     summary.innerHTML = `
       <div class="flex justify-between">
@@ -154,7 +157,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.getElementById("checkoutBtn").onclick = () => {
       if (!confirm("Proceed to checkout?")) return;
-      // clear cart and re-render
+      // clear cart 
       write([]);
       render();
       alert('Payment completed. Thank you! Dont forget to visit us again.');

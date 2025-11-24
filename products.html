@@ -11,7 +11,7 @@
 <body class="bg-white text-gray-900 font-sans m-0 p-0 flex flex-col min-h-screen">
      <header class="mb-6 w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
         <div class="bg-white p-4 flex justify-between items-center">
-            <a href="index.html" class="text-xl font-bold text-gray-900 pl-4 hover:text-gray-600">Apol</a>
+            <a href="index.html" class="text-xl font-bold text-gray-900 pl-4 hover:text-gray-600">Nyek</a>
             <div class="flex items-center gap-4">
                 <nav>
                     <a href="products.html" class="py-2 text-gray-900 text-sm hover:text-gray-400 mr-6">Shop</a>
@@ -33,86 +33,93 @@
 
     <div class="container mx-auto p-4 flex-1">
         <section>
-            <h2 class="text-2xl font-bold ">Our Products</h2>
+            <h2 class="text-2xl font-bold mb-4">Our Products</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-5">
                 <!-- Product 1 -->
-                <div class="border border-gray-300 rounded shadow-lg p-4">
-                    <div class="bg-gray-200 h-48 rounded mb-4 flex items-center justify-center">
-                        <img src="" alt="Product 1" class="w-full h-full object-cover">
+                <div class="border border-gray-300 rounded shadow-lg p-4 flex flex-col">
+                    <div class="product-image bg-white h-64 rounded overflow-hidden mb-4 flex items-center justify-center p-4">
+                        <img src="images/adidas.png" alt="Louis Vuitton" class="max-h-full max-w-full object-contain">
                     </div>
-                    <h3 class="text-lg font-bold mb-2">Product 1</h3>
-                    <p class="text-gray-600 mb-4">Product description goes here</p>
-                    <p class="text-xl font-bold text-blue-600 mb-4">₱110.00</p>
-                    <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 w-full" onclick="apolAddToCart({title: 'Product 1', price: 110, desc: 'Product 1 description', image: 'images/grid1.jpg'})">Add to Cart</button>
+                    <h3 class="text-lg font-bold mb-1">Adidas Samba OG</h3>
+                    <p class="text-gray-600 mb-3 text-sm">Cloud White Core Black</p>
+                    <div class="mt-auto flex items-center justify-between">
+                        <div class="text-xl font-bold text-gray-900">₱5,000.00</div>
+                        <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600" onclick="apolAddToCart({title: 'Adidas Samba OG', price: 5000, desc: 'Cloud White Core Black', image: 'images/adidas.png'})">Add to Cart</button>
+                    </div>
                 </div>
 
                 <!-- Product 2 -->
-                <div class="border border-gray-300 rounded shadow-lg p-4">
-                    <div class="bg-gray-200 h-48 rounded mb-4 flex items-center justify-center">
-                        <img src="" alt="Product 2" class="w-full h-full object-cover">
+                <div class="border border-gray-300 rounded shadow-lg p-4 flex flex-col">
+                    <div class="product-image bg-white h-64 rounded overflow-hidden mb-4 flex items-center justify-center p-4">
+                        <img src="images/voodoo.png" alt="Jordan 1 Retro Low" class="max-h-full max-w-full object-contain">
+                    </div> 
+                    <h3 class="text-lg font-bold mb-1">Jordan 1 Retro Low</h3>
+                    <p class="text-gray-600 mb-3 text-sm">Zion Williamson Voodoo Alternate</p>
+                    <div class="mt-auto flex items-center justify-between">
+                        <div class="text-xl font-bold text-gray-900">₱4,000.00</div>
+                        <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600" onclick="apolAddToCart({title: 'Jordan 1 Retro Low', price: 4000, desc: 'Zion Williamson Voodoo Alternate', image: 'images/voodoo.png'})">Add to Cart</button>
                     </div>
-                    <h3 class="text-lg font-bold mb-2">Product 2</h3>
-                    <p class="text-gray-600 mb-4">Product description goes here</p>
-                    <p class="text-xl font-bold text-blue-600 mb-4">₱100.00</p>
-                    <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 w-full" 
-                    onclick="apolAddToCart({title: 'Product 2', price: 100, desc: 'Product 2 description', image: 'images/grid2.jpg'})">Add to Cart</button>
                 </div>
 
                 <!-- Product 3 -->
-                <div class="border border-gray-300 rounded shadow-lg p-4">
-                    <div class="bg-gray-200 h-48 rounded mb-4 flex items-center justify-center">
-                        <img src="" alt="Product 3" class="w-full h-full object-cover">
+                <div class="border border-gray-300 rounded shadow-lg p-4 flex flex-col">
+                    <div class="product-image bg-white h-64 rounded overflow-hidden mb-4 flex items-center justify-center p-4">
+                        <img src="images/newb.png" alt="New Balance 2002R" class="max-h-full max-w-full object-contain">
                     </div>
-                    <h3 class="text-lg font-bold mb-2">Product 3</h3>
-                    <p class="text-gray-600 mb-4">Product description goes here</p>
-                    <p class="text-xl font-bold text-blue-600 mb-4">₱100.00</p>
-                    <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 w-full" 
-                    onclick="apolAddToCart({title: 'Product 3', price: 100, desc: 'Product 3 description', image: 'images/grid3.jpg'})">Add to Cart</button>
+                    <h3 class="text-lg font-bold mb-1">New Balance 2002R</h3>
+                    <p class="text-gray-600 mb-3 text-sm">Protection Pack Rain Cloud</p>
+                    <div class="mt-auto flex items-center justify-between">
+                        <div class="text-xl font-bold text-gray-900">₱11,990.00</div>
+                        <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600" onclick="apolAddToCart({title: 'New Balance 2002R', price: 11990, desc: 'Protection Pack Rain Cloud', image: 'images/newb.png'})">Add to Cart</button>
+                    </div>
                 </div>
 
                 <!-- Product 4 -->
-                <div class="border border-gray-300 rounded shadow-lg p-4">
-                    <div class="bg-gray-200 h-48 rounded mb-4 flex items-center justify-center">
-                        <img src="" alt="Product 4" class="w-full h-full object-cover">
+                <div class="border border-gray-300 rounded shadow-lg p-4 flex flex-col">
+                    <div class="product-image bg-white h-64 rounded overflow-hidden mb-4 flex items-center justify-center p-4">
+                        <img src="images/china.png" alt="Kobe 9 EM Low Protro" class="max-h-full max-w-full object-contain">
                     </div>
-                    <h3 class="text-lg font-bold mb-2">Product 4</h3>
-                    <p class="text-gray-600 mb-4">Product description goes here</p>
-                    <p class="text-xl font-bold text-blue-600 mb-4">₱100.00</p>
-                    <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 w-full" 
-                    onclick="apolAddToCart({title: 'Product 4', price: 100, desc: 'Product 4 description', image: 'images/grid4.jpg'})">Add to Cart</button>
+                    <h3 class="text-lg font-bold mb-1">Nike Kobe 9 EM Low Protro</h3>
+                    <p class="text-gray-600 mb-3 text-sm">China</p>
+                    <div class="mt-auto flex items-center justify-between">
+                        <div class="text-xl font-bold text-gray-900">₱25,000.00</div>
+                        <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600" onclick="apolAddToCart({title: 'Nike Kobe 9 EM Low Protro', price: 25000, desc: 'China', image: 'images/china.png'})">Add to Cart</button>
+                    </div>
                 </div>
 
                 <!-- Product 5 -->
-                <div class="border border-gray-300 rounded shadow-lg p-4">
-                    <div class="bg-gray-200 h-48 rounded mb-4 flex items-center justify-center">
-                        <img src="" alt="Product 5" class="w-full h-full object-cover">
+                <div class="border border-gray-300 rounded shadow-lg p-4 flex flex-col">
+                    <div class="product-image bg-white h-64 rounded overflow-hidden mb-4 flex items-center justify-center p-4">
+                        <img src="images/panda.png" alt="Nike Dunk Low Retro" class="max-h-full max-w-full object-contain">
                     </div>
-                    <h3 class="text-lg font-bold mb-2">Product 5</h3>
-                    <p class="text-gray-600 mb-4">Product description goes here</p>
-                    <p class="text-xl font-bold text-blue-600 mb-4">₱100.00</p>
-                    <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 w-full" 
-                    onclick="apolAddToCart({title: 'Product 5', price: 100, desc: 'Product 5 description', image: 'images/grid5.jpg'})">Add to Cart</button>
+                    <h3 class="text-lg font-bold mb-1">Nike Dunk Low Retro</h3>
+                    <p class="text-gray-600 mb-3 text-sm">White Black Panda</p>
+                    <div class="mt-auto flex items-center justify-between">
+                        <div class="text-xl font-bold text-gray-900">₱7,000.00</div>
+                        <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600" onclick="apolAddToCart({title: 'Nike Dunk Low Retro', price: 7000, desc: 'White Black Panda', image: 'images/panda.png'})">Add to Cart</button>
+                    </div>
                 </div>
 
                 <!-- Product 6 -->
-                <div class="border border-gray-300 rounded shadow-lg p-4">
-                    <div class="bg-gray-200 h-48 rounded mb-4 flex items-center justify-center">
-                        <img src="" alt="Product 6" class="w-full h-full object-cover">
+                <div class="border border-gray-300 rounded shadow-lg p-4 flex flex-col">
+                    <div class="product-image bg-white h-64 rounded overflow-hidden mb-4 flex items-center justify-center p-4">
+                        <img src="images/travis.png" alt="Jordan 1 Retro Low OG SP" class="max-h-full max-w-full object-contain">
                     </div>
-                    <h3 class="text-lg font-bold mb-2">Product 6</h3>
-                    <p class="text-gray-600 mb-4">Product description goes here</p>
-                    <p class="text-xl font-bold text-blue-600 mb-4">₱100.00</p>
-                    <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 w-full" 
-                    onclick="apolAddToCart({title: 'Product 6', price: 100, desc: 'Product 6 description', image: 'images/grid6.jpg'})">Add to Cart</button>
+                    <h3 class="text-lg font-bold mb-1">Jordan 1 Retro Low OG SP</h3>
+                    <p class="text-gray-600 mb-3 text-sm">Fragment x Travis Scott Sail Military Blue</p>
+                    <div class="mt-auto flex items-center justify-between">
+                        <div class="text-xl font-bold text-gray-900">₱35,000.00</div>
+                        <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600" onclick="apolAddToCart({title: 'Jordan 1 Retro Low OG SP', price: 35000, desc: 'Fragment x Travis Scott', image: 'images/travis.png'})">Add to Cart</button>
+                    </div>
                 </div>
             </div>
         </section>
     </div>
     <footer class="mt-6 w-full bg-white text-gray-900 p-2">
-        <div class="flex justify-start gap-4 ml-2">
-            <span>Copyright</span>
-            <a href="https://www.instagram.com/criz
+        <div class="flex justify-start gap-4 ml-2 font-bold text-sm">
+            <span>© 2025</span>
+            <a href="https://www.instagram.com/criz.py_/" 
                target="_blank" 
                rel="noopener noreferrer"
                class="underline hover:text-pink-500">

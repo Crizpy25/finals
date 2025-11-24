@@ -153,13 +153,16 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     document.getElementById("checkoutBtn").onclick = () => {
-      alert("Done Checkout.");
+      if (!confirm("Proceed to checkout?")) return;
+      // clear cart and re-render
+      write([]);
+      render();
+      alert('Payment completed. Thank you! Dont forget to visit us again.');
     };
   }
 
   render();
 })();
-
 
 
 
